@@ -1,0 +1,296 @@
+<!doctype html><!--[if lte IE 7 ]>
+<html class="no-js ie lte7 lte8 lte9 getting-started"> <![endif]--><!--[if IE 8 ]>
+<html class="no-js ie ie8 lte8 lte9 getting-started"> <![endif]--><!--[if IE 9 ]>
+<html class="no-js ie ie9 lte9 getting-started"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--><html class="no-js getting-started"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="Amaze UI 是一个移动优先的跨屏前端框架。"><meta name="keywords" content="HTML, HTML5, CSS, CSS3, JS, JavaScript, framework, Amaze UI, front-end, frontend, web development, 前端框架, 开源, meizi, meizi UI, 妹子UI, Web Components"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="format-detection" content="telephone=no"><title>开始使用 - Widget | Amaze UI</title><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"/><link rel="alternate icon" type="image/png" href="../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-title" content="Amaze UI"/><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../assets/css/amazeui.min.css?v=jxklo7ya"><link rel="stylesheet" href="../../assets/css/amaze.min.css?v=jxklo7ya"><!--[if (gte IE 9)|!(IE)]><!--><script src="../../assets/js/jquery.min.js"></script><!--<![endif]--><!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.amazeui.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="../../assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]--><script src="../../assets/js/amazeui.min.js?v=jxklo7ya"></script><link rel="canonical" href="http://amazeui.org/getting-started/widget?_ver=2.x"/></head><body class="" data-amui="2.x"><!--[if lte IE 9 ]>
+<div class="am-alert am-alert-danger ie-warning" data-am-alert>
+  <button type="button" class="am-close">&times;</button>
+  <div class="am-container">
+    365 安全卫士提醒：你的浏览器太古董了，妹子无爱，<a
+    href="http://browsehappy.com/" target="_blank">速速点击换一个</a>！</div></div>
+<![endif]--><div class="am-projects" style="background:#444;height:40px"><div class="amz-container am-cf"><nav class="am-projects-nav"><a href="http://amazeui.org" class="active">Web</a> <a href="http://t.amazeui.org/" target="_blank">Touch</a></nav><nav class="am-projects-misc"><a href="http://amazeui.org/showcase/" target="_blank" style="font-weight:400">案例</a> <a href="http://amazeui.org/plugins/" target="_blank" style="font-weight:400">插件库</a> <a href="http://ask.amazeui.org/" target="_blank"><span class="am-icon-comments-o"></span> 论坛</a></nav></div></div><header id="amz-header"><div class="amz-container am-cf"><h1><a href="../../">Amaze UI</a></h1><button class="am-btn am-btn-primary am-show-sm-only" data-am-collapse="{target: '.amz-header-nav'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button><nav><ul class="amz-header-nav am-collapse"><li class="am-active"><a href="../../getting-started">开始使用</a></li><li><a href="../../css">CSS</a></li><li><a href="../../javascript">JS 插件</a></li><li><a href="../../widgets">Web 组件</a></li><li><a href="http://amazeui.org/react/" target="_blank">React</a></li><li class="amz-cse"><form action="http://zhannei.baidu.com/cse/search" method="get" target="_blank" class="cse-form"><input type="hidden" name="s" value="13988471460650623274"> <input type="hidden" name="entry" value="1"> <input type="text" required name="q" placeholder="搜索" autocomplete="off"> <button><span class="am-icon-search"></span></button></form></li></ul></nav></div></header><div class="amz-banner"><div class="amz-container" data-am-scrollspy="{animation: 'scale-up', repeat: false}"><h1>开始使用</h1><p>Amaze UI 概览，下载、使用，模板示例，二次开发……</p></div></div><section class="" id="amz-main" data-tag="widget"><div class="am-g am-g-fixed"><div class="col-md-3 am-u-md-3"><div id="amz-offcanvas" class="am-offcanvas doc-offcanvas"><section class="amz-sidebar am-offcanvas-bar"><ul class="am-nav"><li class="am-nav-header">基本使用</li><li><a href="../../getting-started/layouts">布局示例<span class="am-nav-en">Layouts</span></a></li><li><a href="../../getting-started/compatibility">兼容性列表<span class="am-nav-en">Compatibility</span></a></li><li><a href="https://github.com/allmobilize/amazeui/blob/master/CHANGELOG.md" target="_blank">更新记录<span class="am-nav-en">Change Log</span></a></li><li><a href="../../getting-started/webapp">Web App 相关<span class="am-nav-en">Web App</span></a></li><li><a href="../../getting-started/collections">藏品<span class="am-nav-en">Collections</span></a></li><li class="am-nav-header">进阶开发</li><li><a href="../../getting-started/project-structure">项目结构<span class="am-nav-en">Structure</span></a></li><li><a href="../../getting-started/widget-dev">Web 组件简介<span class="am-nav-en">Web Component</span></a></li><li><a href="../../getting-started/html-css">HTML/CSS 规范<span class="am-nav-en">Rules</span></a></li><li><a href="../../getting-started/javascript">JavaScript 规范<span class="am-nav-en">Rules</span></a></li><li class="am-active"><a href="../../getting-started/widget">Web 组件规范<span class="am-nav-en">Rules</span></a></li><li class="am-nav-header">你来我往</li><li><a href="../../getting-started/faq">常见问题<span class="am-nav-en">FAQs</span></a></li><li><a href="../../getting-started/feedback">Bug 反馈<span class="am-nav-en">Feedback</span></a></li><li><a href="https://github.com/allmobilize/amazeui/wiki/Credits" target="_blank">感谢有你<span class="am-nav-en">Credits</span></a></li><li><a href="../../getting-started/team">开发者说<span class="am-nav-en">Team</span></a></li></ul></section><div class="amz-pager"><a href="#up" class="am-icon-caret-up" data-rel="scrollUp"></a> <a href="#down" class="am-icon-caret-down" data-rel="scrollDown"></a></div></div></div><div class="col-md-9 am-u-md-9 doc-content"><div class="doc-toc"><h2><span>目录</span></h2><div class="doc-toc-bd"><ul class="md-toc"><li><a href="#web-zu-jian-yang-shi-zu-zhi">Web 组件样式组织</a></li><li><a href="#mu-lu-jie-gou-ji-shuo-ming">目录结构及说明</a><ul class="am-collapse"><li><a href="#codepackage-jsoncode">package.json</a></li><li><a href="#codereadme-mdcode">README.md</a></li><li><a href="#codehistory-mdcode">HISTORY.md</a></li><li><a href="#codesrccode-mu-lu">src 目录</a></li></ul></li><li><a href="#kai-fa-jiao-shou-jia">开发脚手架</a></li><li><a href="#diao-shi-yu-lan">调试预览</a></li></ul></div></div><h1 id="amaze-ui-web-zu-jian-kai-fa-gui-fan">Amaze UI Web 组件开发规范 <a href="#amaze-ui-web-zu-jian-kai-fa-gui-fan" title="Heading anchor" class="doc-anchor"></a></h1><hr><p>Web 组件基于 Amaze UI 基础库（<a href="/css/">CSS</a> / <a href="/javascript">JS</a>）开发，在基础库已有样式、功能的基础上做更多扩展。</p><h2 id="web-zu-jian-yang-shi-zu-zhi">Web 组件样式组织 <a href="#web-zu-jian-yang-shi-zu-zhi" title="Heading anchor" class="doc-anchor"></a></h2><p>Web 组件的样式有三个层级：</p><ol><li><p>Amaze UI 基础样式: 每个网站项目中都会默认引入以下基础样式，组件开发时应在以下样式的基础上进行。</p><ul><li><code>variables.less</code></li><li><code>mixins.less</code></li><li><code>base.less</code></li><li><code>grid.less</code></li><li><code>block-grid.less</code></li><li><code>utility.less</code></li></ul></li><li><p>Amaze UI 其他样式组件：Web 组件编写过程中使用到类似的样式时应当引入相关 <a href="/css/">CSS 组件</a>，在此上进行微调，比如 <code>button.less</code>、<code>close.less</code>。</p></li><li><p>Web 组件自身样式：Web 组件自身样式拆分出骨干样式和主题样式；每个 Web 组件可以有多个不同主题，主题基于骨干样式编写，每个主题相互独立。</p><ul><li>骨干样式以 <code>{widget}.less</code> 命名；</li><li>默认主题以 <code>{widget}.default.less</code> 命名；</li><li>其他主题以 <code>{widget}.{theme-name}.less</code> 命名。</li></ul></li></ol><h2 id="mu-lu-jie-gou-ji-shuo-ming">目录结构及说明 <a href="#mu-lu-jie-gou-ji-shuo-ming" title="Heading anchor" class="doc-anchor"></a></h2><p>一个组件的目录结构如下：</p><pre>{widget}
+|-- package.json
+|-- README.md
+|-- HISTORY.md
+|-- resources
+|   `-- screenshots
+|       |-- 0.jpg
+|       |-- 1.jpg
+|       `-- 2.jpg
+`-- src
+    |-- {widget}.hbs
+    |-- {widget}.js
+    |-- {widget}.less
+    |-- {widget}.default.less
+    |-- {widget}.[theme1].less
+    |-- {widget}.[themen].less
+    `-- {widget}.png</pre><h3 id="codepackage-jsoncode"><code>package.json</code> <a href="#codepackage-jsoncode" title="Heading anchor" class="doc-anchor"></a></h3><p>Web 组件核心描述文件，<code>json</code> 格式，下面的注释仅为方便解释各项含义添加。</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">{
+    <span class="hljs-comment">// 组件名称: 使用小写字母，不能和存在的组件重名</span>
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"sample"</span>,
+
+    <span class="hljs-comment">// 版本号</span>
+    <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.0.1"</span>,
+
+    <span class="hljs-comment">// 组件本地化名字，目前有中文、英文两个选项</span>
+    <span class="hljs-string">"localName"</span>: {
+        <span class="hljs-string">"en"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-string">"zh-cn"</span>: <span class="hljs-string">""</span>
+    },
+
+    <span class="hljs-comment">// 组件类型 [""|"layout"|"social"]</span>
+    <span class="hljs-string">"type"</span>: <span class="hljs-string">""</span>,
+
+    <span class="hljs-comment">// 组件 ICON，存放在 src 目录下</span>
+    <span class="hljs-string">"icon"</span>: <span class="hljs-string">"sample.png"</span>,
+
+    <span class="hljs-comment">// 作者信息</span>
+    <span class="hljs-string">"author"</span>: {
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"xxx"</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"xxx@yunshipei.com"</span>
+    },
+
+    <span class="hljs-comment">// 组件描述</span>
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"sample 描述"</span>,
+
+    <span class="hljs-comment">// 组件驱动者</span>
+    <span class="hljs-string">"poweredBy"</span>: <span class="hljs-string">"AllMobilize"</span>,
+
+    <span class="hljs-comment">// 基础样式（无需修改）</span>
+    <span class="hljs-string">"styleBase"</span>: [
+        <span class="hljs-string">"variables.less"</span>,
+        <span class="hljs-string">"mixins.less"</span>,
+        <span class="hljs-string">"base.less"</span>,
+        <span class="hljs-string">"grid.less"</span>,
+        <span class="hljs-string">"block-grid.less"</span>,
+        <span class="hljs-string">"utility.less"</span>
+    ],
+
+    <span class="hljs-comment">// 组件模板，使用 [handlebarsjs](http://handlebarsjs.com/)</span>
+    <span class="hljs-string">"template"</span>: <span class="hljs-string">"sample.hbs"</span>,
+
+    <span class="hljs-comment">// 依赖的库样式</span>
+    <span class="hljs-string">"styleDependencies"</span>: [
+        <span class="hljs-string">"icon.less"</span>
+    ],
+
+    <span class="hljs-comment">// 组件核心样式</span>
+    <span class="hljs-string">"style"</span>: <span class="hljs-string">"sample.less"</span>,
+
+    <span class="hljs-comment">// 组件主题（没有主题时将值设置为 null）</span>
+    <span class="hljs-string">"themes"</span>: [
+        {
+            <span class="hljs-comment">// 主题名称 sample.{xxx}.less 中的 {xxx}，尽量语义化描述主题</span>
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"default"</span>,
+            <span class="hljs-comment">// 主题描述，简要描述主题</span>
+            <span class="hljs-string">"desc"</span>: <span class="hljs-string">"默认"</span>,
+            <span class="hljs-comment">// 主题使用配置选项</span>
+            <span class="hljs-string">"options"</span>: {},
+            <span class="hljs-comment">// 主题钩子</span>
+            <span class="hljs-string">"hook"</span>: <span class="hljs-string">"hook-am-sample-default"</span>,
+            <span class="hljs-comment">// 主题使用的less变量</span>
+            <span class="hljs-string">"variables"</span>: [
+                {
+                    <span class="hljs-comment">// 变量名</span>
+                    <span class="hljs-string">"variable"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-comment">// 变量描述名字</span>
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-comment">// 默认值</span>
+                    <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-comment">// 使用改变量的 css 样式</span>
+                    <span class="hljs-string">"used"</span>: [
+                        {
+                            <span class="hljs-string">"selector"</span>: <span class="hljs-string">""</span>,
+                            <span class="hljs-string">"property"</span>: <span class="hljs-string">""</span>
+                        }
+                    ]
+                }
+            ],
+            <span class="hljs-comment">// 主题演示数据，可以为多个</span>
+            <span class="hljs-string">"demos"</span>: [
+                {
+                    <span class="hljs-comment">// 演示描述</span>
+                    <span class="hljs-string">"desc"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-comment">// 演示数据</span>
+                    <span class="hljs-string">"data"</span>: {}
+                }
+            ]
+        }
+    ],
+
+    <span class="hljs-comment">// Amaze UI 核心js（无需修改）</span>
+    <span class="hljs-string">"jsBase"</span>: [
+        <span class="hljs-string">"core.js"</span>
+    ],
+
+    <span class="hljs-comment">// 依赖的 Amaze UI js 插件</span>
+    <span class="hljs-string">"jsDependencies"</span>: [],
+
+    <span class="hljs-comment">// 组件脚本</span>
+    <span class="hljs-string">"script"</span>: <span class="hljs-string">"sample.js"</span>,
+
+    <span class="hljs-comment">// api 用于生成用户 GUI 界面以及保存用户提交的数据</span>
+    <span class="hljs-string">"api"</span>: {
+        <span class="hljs-string">"id"</span>: {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"ID"</span>, <span class="hljs-comment">// 表单提示名称</span>
+            <span class="hljs-string">"desc"</span>: <span class="hljs-string">"组件自定义ID，遵循CSS ID命名规范"</span>,
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>, <span class="hljs-comment">// 表单类型</span>
+            <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 默认值</span>
+            <span class="hljs-string">"pattern"</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// 表单验证正则表达式</span>
+            <span class="hljs-string">"required"</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// 是否为必填</span>
+        },
+        <span class="hljs-string">"className"</span>: {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Class"</span>,
+            <span class="hljs-string">"desc"</span>: <span class="hljs-string">"用户自定义组件 class，遵循 CSS class 命名规范"</span>,
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+            <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-string">"required"</span>: <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-comment">// 主题选择（没有主题时将值设置为 null）</span>
+        <span class="hljs-string">"theme"</span>: {
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"主题"</span>,
+            <span class="hljs-string">"desc"</span>: <span class="hljs-string">"组件主题"</span>,
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"select"</span>, <span class="hljs-comment">// 下拉选框</span>
+            <span class="hljs-string">"default"</span>: <span class="hljs-string">"default"</span>,
+            <span class="hljs-string">"required"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">"dataList"</span>: <span class="hljs-string">"&lt;%= pkg.themes %&gt;"</span> <span class="hljs-comment">// 从 themes 中读取主题列表</span>
+        },
+        <span class="hljs-comment">// 组件选项（没有选项时将值设置为 null）</span>
+        <span class="hljs-string">"options"</span>: {
+            <span class="hljs-string">"multiple"</span>: {
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"同时展开多个面板"</span>,
+                <span class="hljs-string">"desc"</span>: <span class="hljs-string">"是否允许同时展开多个面板"</span>,
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"select"</span>,
+                <span class="hljs-string">"default"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"required"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-comment">// 表单类型为 select 时通过 dataList 设置 &lt;option&gt; 数据</span>
+                <span class="hljs-string">"dataList"</span>: [
+                    {
+                        <span class="hljs-string">"value"</span>: <span class="hljs-string">"false"</span>,
+                        <span class="hljs-string">"title"</span>: <span class="hljs-string">"不启用"</span>,
+                        <span class="hljs-string">"selected"</span>: <span class="hljs-literal">true</span>
+                    },
+                    {
+                        <span class="hljs-string">"value"</span>: <span class="hljs-literal">true</span>,
+                        <span class="hljs-string">"title"</span>: <span class="hljs-string">"启用"</span>
+                    }
+                ]
+            }
+        },
+
+        <span class="hljs-comment">// 内容</span>
+        <span class="hljs-string">"content"</span>: {
+              <span class="hljs-comment">// 内容类型 Array 数组、Object（对象）</span>
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"Array"</span>,
+            <span class="hljs-string">"item"</span>: {
+                <span class="hljs-string">"title"</span>: {
+                    <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+                    <span class="hljs-string">"comment"</span>: <span class="hljs-string">"面板标题"</span>
+                },
+                <span class="hljs-string">"content"</span>: {
+                    <span class="hljs-string">"type"</span>: <span class="hljs-string">"html"</span>,
+                    <span class="hljs-string">"comment"</span>: <span class="hljs-string">"面板内容"</span>
+                }
+            }
+        }
+
+        <span class="hljs-comment">// 表单接口 - 测试接口，细节还会做调整</span>
+        <span class="hljs-comment">// 提供的表单接口必须支持跨域调用，并返回 JSON 数据</span>
+        <span class="hljs-string">"forms"</span>: {
+            <span class="hljs-string">"signin"</span>: {
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://api.xxx.com/signin"</span>, <span class="hljs-comment">// 提交数据的接口</span>
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"POST"</span>,
+                <span class="hljs-string">"desc"</span>: <span class="hljs-string">"登录表单，你可以在这里写表单的描述信息"</span>,
+                <span class="hljs-string">"fields"</span>: { <span class="hljs-comment">// 表单字段，字段名称应该和返回数据里的字段对应</span>
+                    <span class="hljs-string">"username"</span>: {
+                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"用户名"</span>,
+                        <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"请使用邮箱"</span>,
+                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+                        <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+                        <span class="hljs-string">"required"</span>: <span class="hljs-literal">true</span>
+                    },
+                    <span class="hljs-string">"password"</span>: {
+                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"密码"</span>,
+                        <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"设置密码"</span>,
+                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+                        <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+                        <span class="hljs-string">"required"</span>: <span class="hljs-literal">true</span>
+                    },
+                    <span class="hljs-string">"submit"</span>: {
+                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"提交信息"</span>,
+                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"submit"</span>,
+                        <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>
+                    }
+                }
+            },
+
+            <span class="hljs-string">"signup"</span>: {
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://api.xxx.com/signup"</span>,
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"POST"</span>,
+                <span class="hljs-string">"desc"</span>: <span class="hljs-string">"注册表单，你可以在这里写表单的描述信息"</span>,
+                <span class="hljs-string">"fields"</span>: {
+                    <span class="hljs-string">"username"</span>: {
+                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"用户名"</span>,
+                        <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"请使用邮箱"</span>,
+                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+                        <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+                        <span class="hljs-string">"required"</span>: <span class="hljs-literal">true</span>
+                    },
+                    <span class="hljs-string">"password"</span>: {
+                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"密码"</span>,
+                        <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"设置密码"</span>,
+                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span>,
+                        <span class="hljs-string">"default"</span>: <span class="hljs-string">""</span>,
+                        <span class="hljs-string">"required"</span>: <span class="hljs-literal">true</span>
+                    }
+                }
+            }
+        }
+    },
+
+    <span class="hljs-comment">// 是否隐藏组件 - 此选项供云适配 WebIDE 使用</span>
+    <span class="hljs-string">"hidden"</span>: <span class="hljs-literal">false</span>
+}</code></pre></div><h3 id="codereadme-mdcode"><code>README.md</code> <a href="#codereadme-mdcode" title="Heading anchor" class="doc-anchor"></a></h3><p>Web 组件使用说明，包括 Web 组件 API 介绍、使用技巧、注意事项等。</p><h3 id="codehistory-mdcode"><code>HISTORY.md</code> <a href="#codehistory-mdcode" title="Heading anchor" class="doc-anchor"></a></h3><p>Web 组件更新历史记录。</p><h3 id="codesrccode-mu-lu"><code>src</code> 目录 <a href="#codesrccode-mu-lu" title="Heading anchor" class="doc-anchor"></a></h3><p><code>src</code> 目录包含 Web 组件的模板（hbs）、核心样式（less）、交互（js）、图标（png）、主题文件。</p><p><code>src</code> 目录里的文件使用 Web 组件名称作为文件名，主题使用 <code>{Web 组件名}.{主题名}.less</code> 形式命名。</p><ul><li><code>{widget}.hbs</code>: 模板，使用 handlebars</li><li><code>{widget}.less</code>: 主题核心样式，使用 less 编写</li><li><code>{widget}.js</code>: 组件交互</li><li><code>{widget}.png</code>: 组件图标，50px * 50px</li><li><code>{widget}.default.less</code>: 默认主题</li><li><code>{widget}.xxx.less</code>: 其他主题，可以任意多</li></ul><h4 id="mo-ban-code{widget}-hbscode">模板 <code>{widget}.hbs</code> <a href="#mo-ban-code{widget}-hbscode" title="Heading anchor" class="doc-anchor"></a></h4><ul><li><code>data-am-widget=&quot;figure&quot;</code> 为统一标识符；</li><li><code>.am-{Web 组件名}</code> 为 Web 组件基础标识符，Web 组件的所有子元素、主题、状态基于此命名； Web 组件基础标识符采用 <code>am-{widget}</code> 方式命名，子元素、主题、状态采用 <code>am-{widget}-{子元素|主题|状态}</code>，如 <code>am-figure-hover</code> 、 <code>am-figure-bd</code> 、 <code>am-figure-active</code> 、 <code>am-figure-ios7</code>。</li><li>模板使用 <code>{{#this}}..{{this}}</code> 包裹（Web 组件使用时注册为 Handlebars <code>partial</code>，通过 <code>{{&gt; widget data}}</code> 的形式调用。</li></ul><div class="doc-code demo-highlight"><pre class=""><code class="xml">{{#this}}
+  <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">data-am-widget</span>=<span class="hljs-string">"figure"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"am-figure{{#if theme}} am-figure-{{theme}}{{else}} am-figure-default{{/if}}{{#if options.zoomble}} am-figure-zoomable{{/if}}{{#if widgetId}} {{widgetId}}{{/if}}{{#if className}} {{className}}{{/if}}"</span>{{#<span class="hljs-attr">if</span> <span class="hljs-attr">id</span>}}
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"{{id}}"</span>{{/<span class="hljs-attr">if</span>}}&gt;</span>
+    {{#if content.img}}
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{content.img}}"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"{{#if content.imgAlt}}{{content.imgAlt}}{{else}}{{content.figcaption}}{{/if}}"</span>/&gt;</span>
+    {{/if}}
+
+    {{#if content.figcaption}}
+       <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-figure-capition"</span>&gt;</span>
+         {{content.figcaption}}
+       <span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span>
+    {{/if}}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+{{/this}}</code></pre></div><p><strong>注意</strong>：</p><ul><li>Handlebars 模板中不支持 <code>&lt;script&gt;</code> 标签，如需加载外部脚本需在 <code>{widget}.js</code> 中进行。</li><li>如果需要保存用户设置的选项，使用 <code>data-am-{widget}-{option}</code> 保存在模板中，然后在 <code>{widget}.js</code> 中通过 <code>attr(&#39;data-am-{widget}-{option}&#39;)</code> 读取。</li></ul><h4 id="he-xin-yang-shi-code{widget}-lesscode">核心样式 <code>{widget}.less</code> <a href="#he-xin-yang-shi-code{widget}-lesscode" title="Heading anchor" class="doc-anchor"></a></h4><p>Web 组件样式使用 less 编写。</p><div class="doc-code demo-highlight"><pre class=""><code class="css">.am-{widget} {
+
+  .hook-am-{widget};
+}
+
+.hook-am-{widget}() {}</code></pre></div><p>样式添加必要的 <code>hook</code>，方便用户修改。</p><h4 id="mo-ren-zhu-ti-code{widget}-defalt-lesscode">默认主题 <code>{widget}.defalt.less</code> <a href="#mo-ren-zhu-ti-code{widget}-defalt-lesscode" title="Heading anchor" class="doc-anchor"></a></h4><div class="doc-code demo-highlight"><pre class=""><code class="css">.am-{widget}-default {
+
+  .hook-am-{widget}-default;
+}
+
+.hook-am-{widget}-default() {}</code></pre></div><h4 id="qi-ta-zhu-ti-code{widget}-xxx-lesscode">其他主题 <code>{widget}.xxx.less</code> <a href="#qi-ta-zhu-ti-code{widget}-xxx-lesscode" title="Heading anchor" class="doc-anchor"></a></h4><div class="doc-code demo-highlight"><pre class=""><code class="css">.am-{widget}-xxx {
+
+  .hook-am-{widget}-xxx;
+}
+
+.hook-am-{widget}-xxx() {}</code></pre></div><h4 id="web-zu-jian-jiao-hu-code{widget}-jscode">Web 组件交互 <code>{widget}.js</code> <a href="#web-zu-jian-jiao-hu-code{widget}-jscode" title="Heading anchor" class="doc-anchor"></a></h4><p>Amaze UI 使用 Seajs 、Zepto，Widget 的脚本需按照 Seajs 规范编写。</p><p><strong>如果要在 JS 中动态插入外部样式、脚本，必须在 <code>load</code> 事件触发以后再执行相关操作，以免影响网页基本内容载入。</strong></p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">define(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require, exports, module</span>) </span>{
+    <span class="hljs-comment">// 按此方式使用 Zepto</span>
+    <span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">window</span>.Zepto;
+
+});</code></pre></div><h2 id="kai-fa-jiao-shou-jia">开发脚手架 <a href="#kai-fa-jiao-shou-jia" title="Heading anchor" class="doc-anchor"></a></h2><p>我们提供一个基于 <a href="http://slushjs.github.io/">Slush.js</a> 的<a href="https://www.npmjs.org/package/slush-amuiwidget">开发脚手架</a>，可以快速生成 Web 组件目录及相关文件。</p><p>全局安装 Slush:</p><div class="doc-code demo-highlight"><pre class=""><code class="bash">npm install -g slush</code></pre></div><p>全局安装 <code>slush-amuiwidget</code>:</p><div class="doc-code demo-highlight"><pre class=""><code class="bash">npm install -g slush-amuiwidget</code></pre></div><p>在 Amaze UI 项目根目录下面执行:</p><div class="doc-code demo-highlight"><pre class=""><code class="bash">slush amuiwidget</code></pre></div><h2 id="diao-shi-yu-lan">调试预览 <a href="#diao-shi-yu-lan" title="Heading anchor" class="doc-anchor"></a></h2><p>按照规范开发完 Web 组件以后，可以在本地调试预览组件。</p><p>在 Amaze UI 项目根目录下执行以下命令，安装依赖：</p><pre>npm install</pre><p>全局安装 <code>nodemon</code>：</p><pre>npm install nodemon -g</pre><p>安装完成以后执行：</p><pre>gulp preview</pre><p>然后在浏览器里打开 <code>http://localhost:3008/#{component}</code> 查看组件的效果，<code>{component}</code> 替换为组件名称。</p><p>有样式、脚本、配置文件修改时，修改完成以后刷新浏览器即可，<code>nodemon</code> 会自动重启 Node 服务。</p><div id="issue-list"></div><script type="text/x-handlebars-template" id="issue-list-tpl"><h2>Issue 列表</h2>
+          <ul class="am-list issue-list">
+            {{#each this}}
+              <li><a href="{{html_url}}" target="_blank" class="am-text-truncate am-icon-bug">{{title}}
+                <span
+                  class="am-badge {{#ifCond state '=='
+                  'open'}}am-badge-danger{{else}}am-badge-success{{/ifCond}}">{{state}}</span></a></li>
+            {{/each}}
+          </ul></script></div></div></section><a href="#amz-offcanvas" class="am-icon-btn am-icon-bars am-show-sm-only amz-sidebar-toggle" data-am-offcanvas><span class="am-sr-only">侧栏导航</span></a><footer class="amz-footer"><div class="am-g am-g-fixed"><div class="col-md-4 col-md-push-8 am-u-md-4 am-u-md-push-8"><ul class="amz-social"><li><a href="../../about/contact"><span class="am-icon-qq"></span></a></li><li><a href="http://weibo.com/amazeui" title="Amaze UI 微博" target="_blank"><span class="am-icon-weibo"></span></a></li><li><a href="#am-wechat" title="云适配微信" data-am-modal><span class="am-icon-wechat"></span></a></li><li><a class="new-issue" href="https://github.com/allmobilize/amazeui/issues/new?title=Bug%3A%20&body=**%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0**%0A%0A%EF%BC%88%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E9%97%AE%E9%A2%98%EF%BC%89%0A%0A**%E4%BA%A7%E7%94%9F%E7%8E%AF%E5%A2%83**%0A%0A-%20%E8%AE%BE%E5%A4%87%EF%BC%9A%EF%BC%88%E6%89%8B%E6%9C%BA%E3%80%81%E5%B9%B3%E6%9D%BF%E7%AD%89%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%97%B6%E5%A1%AB%E5%86%99%E6%AD%A4%E9%A1%B9%EF%BC%89%0A-%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%8A%E7%89%88%E6%9C%AC%EF%BC%9A%0A-%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8A%E7%89%88%E6%9C%AC%EF%BC%9A%0A-%20%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80%EF%BC%9A%0A%0A**%E5%A4%8D%E7%8E%B0%E6%AD%A5%E5%A5%8F**%0A%0A1.%20%0A2.%20%0A...%20%0A%20%0A**UA:**%20%0A" target="_blank" title="Bug 反馈"><span class="am-icon-paper-plane"></span></a></li></ul></div><div class="col-md-8 col-md-pull-4 am-u-md-8 am-u-md-pull-4"><h2 class="amz-fd"><a href="http://www.yunshipei.com" target="_blank">云适配</a></h2><ul class="amz-links"><a href="../../about/wantu" class="am-icon-heart">&nbsp;妹子招亲</a> | <a href="../../about/resources">品牌相关</a></ul><p class="amz-cp">&copy; 2019 AllMobilize, Inc. Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. Developed with <a href="http://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>.</p></div></div></footer><div class="am-modal am-modal-no-btn" tabindex="-1" id="am-wechat"><div class="am-modal-dialog"><div class="am-modal-hd"><a href="" class="am-close am-close-spin" data-am-modal-close>&times;</a></div><div class="am-modal-bd"><img src="../../assets/i/am/qr-ui.jpg" alt="Amaze UI 微信"/><br/>在微信上关注我们</div></div></div><div class="amz-toolbar" id="amz-toolbar"><a href="#top" title="回到顶部" class="am-icon-btn am-icon-arrow-up" id="amz-go-top"></a> <a href="../../getting-started/faq" title="常见问题" class="am-icon-faq am-icon-btn am-icon-question-circle"></a></div><script src="../../assets/js/handlebars.min.js"></script><script src="../../assets/js/main.min.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?b424d39312c46404f15e22574a531fbb",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}(),function(e,t,a){function n(){!function(e,t,a,n,c,o,d){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),d=t.getElementsByTagName(a)[0],o.async=1,o.src=n,d.parentNode.insertBefore(o,d)}(e,t,a,"//www.google-analytics.com/analytics.js","ga"),ga("create","UA-34196034-8","amazeui.org"),ga("send","pageview")}e.addEventListener?e.addEventListener("load",n,!1):e.attachEvent&&e.attachEvent("onload",n)}(window,document,"script")</script><div style="display:none"><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?" https://":" http://";document.write(unescape("%3Cspan id='cnzz_stat_icon_1256061744'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s95.cnzz.com/z_stat.php%3Fid%3D1256061744%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"))</script><script type="text/javascript">var _vds=_vds||[];window._vds=_vds,function(){_vds.push(["setAccountId","9697e21287384bcaa5adf7edd07f1ee6"]),function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https://":"http://")+"dn-growing.qbox.me/vds.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}()</script></div></body></html><!-- Cached page generated on Tue Jul 02 2019 00:31:00 GMT+0800 (CST) -->

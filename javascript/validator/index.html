@@ -1,0 +1,611 @@
+<!doctype html><!--[if lte IE 7 ]>
+<html class="no-js ie lte7 lte8 lte9 javascript"> <![endif]--><!--[if IE 8 ]>
+<html class="no-js ie ie8 lte8 lte9 javascript"> <![endif]--><!--[if IE 9 ]>
+<html class="no-js ie ie9 lte9 javascript"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--><html class="no-js javascript"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="Amaze UI 是一个移动优先的跨屏前端框架。"><meta name="keywords" content="HTML, HTML5, CSS, CSS3, JS, JavaScript, framework, Amaze UI, front-end, frontend, web development, 前端框架, 开源, meizi, meizi UI, 妹子UI, Web Components"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="format-detection" content="telephone=no"><title>JS 插件 - Validator | Amaze UI</title><meta name="renderer" content="webkit"><meta http-equiv="Cache-Control" content="no-siteapp"/><link rel="alternate icon" type="image/png" href="../../assets/i/favicon.png"><link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png"><meta name="apple-mobile-web-app-title" content="Amaze UI"/><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="../../assets/css/amazeui.min.css?v=jxklo9nb"><link rel="stylesheet" href="../../assets/css/amaze.min.css?v=jxklo9nb"><!--[if (gte IE 9)|!(IE)]><!--><script src="../../assets/js/jquery.min.js"></script><!--<![endif]--><!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.amazeui.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="../../assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]--><script src="../../assets/js/amazeui.min.js?v=jxklo9nb"></script><link rel="canonical" href="http://amazeui.org/javascript/validator?_ver=2.x"/></head><body class="" data-amui="2.x"><!--[if lte IE 9 ]>
+<div class="am-alert am-alert-danger ie-warning" data-am-alert>
+  <button type="button" class="am-close">&times;</button>
+  <div class="am-container">
+    365 安全卫士提醒：你的浏览器太古董了，妹子无爱，<a
+    href="http://browsehappy.com/" target="_blank">速速点击换一个</a>！</div></div>
+<![endif]--><div class="am-projects" style="background:#444;height:40px"><div class="amz-container am-cf"><nav class="am-projects-nav"><a href="http://amazeui.org" class="active">Web</a> <a href="http://t.amazeui.org/" target="_blank">Touch</a></nav><nav class="am-projects-misc"><a href="http://amazeui.org/showcase/" target="_blank" style="font-weight:400">案例</a> <a href="http://amazeui.org/plugins/" target="_blank" style="font-weight:400">插件库</a> <a href="http://ask.amazeui.org/" target="_blank"><span class="am-icon-comments-o"></span> 论坛</a></nav></div></div><header id="amz-header"><div class="amz-container am-cf"><h1><a href="../../">Amaze UI</a></h1><button class="am-btn am-btn-primary am-show-sm-only" data-am-collapse="{target: '.amz-header-nav'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button><nav><ul class="amz-header-nav am-collapse"><li><a href="../../getting-started">开始使用</a></li><li><a href="../../css">CSS</a></li><li class="am-active"><a href="../../javascript">JS 插件</a></li><li><a href="../../widgets">Web 组件</a></li><li><a href="http://amazeui.org/react/" target="_blank">React</a></li><li class="amz-cse"><form action="http://zhannei.baidu.com/cse/search" method="get" target="_blank" class="cse-form"><input type="hidden" name="s" value="13988471460650623274"> <input type="hidden" name="entry" value="1"> <input type="text" required name="q" placeholder="搜索" autocomplete="off"> <button><span class="am-icon-search"></span></button></form></li></ul></nav></div></header><div class="amz-banner"><div class="amz-container" data-am-scrollspy="{animation: 'scale-up', repeat: false}"><h1>JS 插件</h1><p>Amaze UI JS 插件，使用注意事项，以及 JS 插件介绍。</p></div></div><section class="" id="amz-main" data-tag="js-validator"><div class="am-g am-g-fixed"><div class="col-md-3 am-u-md-3"><div id="amz-offcanvas" class="am-offcanvas doc-offcanvas"><section class="amz-sidebar am-offcanvas-bar"><ul class="am-nav"><li class="am-nav-header">UI 增强</li><li><a href="../../javascript/alert">警告框<span class="am-nav-en">Alert</span></a></li><li><a href="../../javascript/button">按钮交互<span class="am-nav-en">Button</span></a></li><li><a href="../../javascript/collapse">折叠面板<span class="am-nav-en">Collapse</span></a></li><li><a href="../../javascript/dropdown">下拉组件<span class="am-nav-en">Dropdown</span></a></li><li><a href="../../javascript/modal">模态窗口<span class="am-nav-en">Modal</span></a></li><li><a href="../../javascript/popover">弹出框<span class="am-nav-en">Popover</span></a></li><li><a href="../../javascript/nprogress">加载进度条<span class="am-nav-en">NProgress</span></a></li><li><a href="../../javascript/slider">图片轮播<span class="am-nav-en">Slider</span></a></li><li><a href="../../javascript/offcanvas">侧边栏<span class="am-nav-en">OffCanvas</span></a></li><li><a href="../../javascript/scrollspy">滚动侦测<span class="am-nav-en">ScrollSpy</span></a></li><li><a href="../../javascript/scrollspynav">滚动侦测导航<span class="am-nav-en">ScrollSpyNav</span></a></li><li><a href="../../javascript/smooth-scroll">平滑滚动<span class="am-nav-en">SmoothScroll</span></a></li><li><a href="../../javascript/sticky">固定元素<span class="am-nav-en">Sticky</span></a></li><li><a href="../../javascript/tabs">选项卡<span class="am-nav-en">Tabs</span></a></li><li><a href="../../javascript/datepicker">日期组件<span class="am-nav-en">DatePicker</span></a></li><li><a href="../../javascript/selected">下拉选框<span class="am-nav-en">Selected</span></a></li><li><a href="../../javascript/ucheck">单/多选框<span class="am-nav-en">uCheck</span></a></li><li class="am-active"><a href="../../javascript/validator">表单验证<span class="am-nav-en">Validator</span></a></li><li class="am-nav-header">实用工具</li><li><a href="../../javascript/cookie">Cookie<span class="am-nav-en">Cookie</span></a></li><li><a href="../../javascript/fastclick">FastClick<span class="am-nav-en">FastClick</span></a></li><li><a href="../../javascript/fullscreen">全屏切换<span class="am-nav-en">FullScreen</span></a></li><li><a href="../../javascript/hammer">触控事件<span class="am-nav-en">Hammer</span></a></li><li><a href="../../javascript/iscroll-lite">iScroll<span class="am-nav-en">iScroll</span></a></li><li><a href="../../javascript/store">本地存储<span class="am-nav-en">Store</span></a></li><li><a href="../../javascript/geolocation">地理位置<span class="am-nav-en">GEO</span></a></li><li><a href="../../javascript/qrcode">二维码<span class="am-nav-en">QRCode</span></a></li></ul></section><div class="amz-pager"><a href="#up" class="am-icon-caret-up" data-rel="scrollUp"></a> <a href="#down" class="am-icon-caret-down" data-rel="scrollDown"></a></div></div></div><div class="col-md-9 am-u-md-9 doc-content"><div class="doc-toc"><h2><span>目录</span></h2><div class="doc-toc-bd"><ul class="md-toc"><li><a href="#shi-yong-shi-li">使用示例</a><ul class="am-collapse"><li><a href="#html5-yuan-sheng-biao-dan-yan-zheng">HTML5 原生表单验证</a></li><li><a href="#js-biao-dan-yan-zheng">JS 表单验证</a></li><li><a href="#xian-shi-ti-shi-xin-xi">显示提示信息</a></li><li><a href="#deng-zhi-yan-zheng">等值验证</a></li><li><a href="#zi-ding-yi-yan-zheng">自定义验证</a></li><li><a href="#yan-zheng-ueditor">验证 UEditor</a></li></ul></li><li><a href="#shi-yong-fang-shi">使用方式</a><ul class="am-collapse"><li><a href="#tong-guo-data-api">通过 Data API</a></li><li><a href="#tong-guo-js">通过 JS</a></li><li><a href="#fang-fa">方法</a></li></ul></li><li><a href="#issue-ce-shi">Issue 测试</a><ul class="am-collapse"><li><a href="#a-hrefhttpsgithub-comallmobilizeamazeuiissues528528a">#528</a></li></ul></li><li><a href="#can-kao-zi-yuan">参考资源</a><ul class="am-collapse"><li><a href="#chang-yong-zheng-ze-biao-da-shi">常用正则表达式</a></li><li><a href="#zhu-yi-shi-xiang">注意事项</a></li><li><a href="#can-kao-lian-jie">参考链接</a></li></ul></li></ul></div></div><h1 id="form-validator">Form Validator <a href="#form-validator" title="Heading anchor" class="doc-anchor"></a></h1><hr><p>基于 HTML5 的表单验证，使用 H5 <code>type</code>、<code>required</code>、<code>pattern</code>、<code>min</code>、<code>max</code>、<code>minlength</code>、<code>maxlength</code> 等属性进行验证，在不支持 JS 的环境中可以平稳退化到 H5 原生验证。</p><h2 id="shi-yong-shi-li">使用示例 <a href="#shi-yong-shi-li" title="Heading anchor" class="doc-anchor"></a></h2><h3 id="html5-yuan-sheng-biao-dan-yan-zheng">HTML5 原生表单验证 <a href="#html5-yuan-sheng-biao-dan-yan-zheng" title="Heading anchor" class="doc-anchor"></a></h3><p>如果表单只面向 H5 浏览器，而且不需要过多的控制，那原生的表单验证无疑是省时省力的选择，通过 <code>:valid</code>、<code>:invalid</code> 伪类可以控制不同验证状态的样式。</p><div class="doc-example"><form action="" class="am-form"><fieldset><legend>H5 原生表单验证</legend><div class="am-form-group"><label for="doc-vld-name-1">用户名：</label><input type="text" id="doc-vld-name-1" maxlength="3" pattern="^\d+$" placeholder="输入用户名" class="am-form-field" required/></div><div class="am-form-group"><label for="doc-vld-email-1">邮箱：</label><input type="email" id="doc-vld-email-1" placeholder="输入邮箱" required/></div><div class="am-form-group"><label for="doc-vld-url-1">网址：</label><input type="url" id="doc-vld-url-1" placeholder="输入网址" required/></div><div class="am-form-group"><label for="doc-vld-age-1">年龄：</label><input type="number" class="" id="doc-vld-age-1" max="100" placeholder="输入年龄" required/></div><div class="am-form-group"><label for="doc-vld-ta-1">评论：</label><textarea id="doc-vld-ta-1" minlength="10" maxlength="100"></textarea></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>H5 原生表单验证<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-field"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><p><strong>参考链接：</strong></p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms_in_HTML">Forms in HTML</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid">:invalid 伪类</a></li><li><a href="http://www.sitepoint.com/html5-form-validation/">HTML5 Form Validation</a></li><li><a href="http://www.the-art-of-web.com/html/html5-form-validation/">HTML5 Form Validation Examples</a></li></ul><h3 id="js-biao-dan-yan-zheng">JS 表单验证 <a href="#js-biao-dan-yan-zheng" title="Heading anchor" class="doc-anchor"></a></h3><p>JS 表单验证基于 HTML5 的各项验证属性进行：</p><ul><li><code>required</code>: 必填；</li><li><code>pattern</code>: 验证正则表达式，插件内置了 <code>email</code>、<code>url</code>、<code>number</code> 三种类型的正则表达式；</li><li><code>minlength</code>/<code>maxlength</code>: 字符限制；</li><li><code>min</code>/<code>max</code>: 最小、最大值限制，仅适用于数值类型的域；</li><li><code>minchecked</code>/<code>maxchecked</code>: 至少、至多选择数，适用于 <code>checkbox</code>、下拉多选框，<code>checkbox</code> 时将相关属性的设置在同组的第一个元素上；</li><li><code>.js-pattern-xx</code>: 验证规则 class，正则库中存在的规则可以通过添加相应 class 实现规则添加。</li></ul><p><strong>注意：</strong></p><p>HTML5 原生表单验证中 <code>pattern</code> 只验证值的合法性，也就是<strong>可以不填，如果填写则必须符合规则</strong>。如果是必填项，仍要添加 <code>required</code> 属性。该插件与 HTML5 的规则保持一致。</p><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-comment">&lt;!-- 下面三种写法等效 --&gt;</span>
+<span class="hljs-comment">&lt;!-- 只内置了 email url number 三种类型的正则，可自行扩展 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- js-pattern-xx 其中 xx 为 pattern 库中的 key --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-pattern-email"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"^(...email regex...)$"</span>/&gt;</span></code></pre></div><div class="doc-example"><form action="" class="am-form" data-am-validator><fieldset><legend>JS 表单验证</legend><div class="am-form-group"><label for="doc-vld-name-2">用户名：</label><input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/></div><div class="am-form-group"><label for="doc-vld-email-2">邮箱：</label><input type="email" id="doc-vld-email-2" placeholder="输入邮箱" required/></div><div class="am-form-group"><label for="doc-vld-url-2">网址：</label><input type="url" id="doc-vld-url-2" placeholder="输入网址" required/></div><div class="am-form-group"><label for="doc-vld-age-2">年龄：</label><input type="number" class="" id="doc-vld-age-2" placeholder="输入年龄  18-120" min="18" max="120" required/></div><div class="am-form-group"><label class="am-form-label">爱好：</label><label class="am-checkbox-inline"><input type="checkbox" value="橘子" name="docVlCb" minchecked="2" maxchecked="4" required> 橘子</label><label class="am-checkbox-inline"><input type="checkbox" value="苹果" name="docVlCb"> 苹果</label><label class="am-checkbox-inline"><input type="checkbox" value="菠萝" name="docVlCb"> 菠萝</label><label class="am-checkbox-inline"><input type="checkbox" value="芒果" name="docVlCb"> 芒果</label><label class="am-checkbox-inline"><input type="checkbox" value="香蕉" name="docVlCb"> 香蕉</label></div><div class="am-form-group"><label>性别：</label><label class="am-radio-inline"><input type="radio" value="" name="docVlGender" required> 男</label><label class="am-radio-inline"><input type="radio" name="docVlGender"> 女</label><label class="am-radio-inline"><input type="radio" name="docVlGender"> 其他</label></div><div class="am-form-group"><label for="doc-select-1">下拉单选框</label><select id="doc-select-1" required><option value="">-=请选择一项=-</option><option value="option1">选项一...</option><option value="option2">选项二.....</option><option value="option3">选项三........</option></select><span class="am-form-caret"></span></div><div class="am-form-group"><label for="doc-select-2">多选框</label><select multiple="multiple" class="" id="doc-select-2" minchecked="2" maxchecked="4"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div class="am-form-group"><label for="doc-vld-ta-2">评论：</label><textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">data-am-validator</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>JS 表单验证<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name-2"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name-2"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名（至少 3 个字符）"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-email-2"</span>&gt;</span>邮箱：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-email-2"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入邮箱"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-url-2"</span>&gt;</span>网址：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-url-2"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入网址"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-age-2"</span>&gt;</span>年龄：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>  <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-age-2"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入年龄  18-120"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"18"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"120"</span> <span class="hljs-attr">required</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-label"</span>&gt;</span>爱好：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"橘子"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span> <span class="hljs-attr">minchecked</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">maxchecked</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">required</span>&gt;</span> 橘子
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"苹果"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 苹果
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"菠萝"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 菠萝
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"芒果"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 芒果
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"香蕉"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 香蕉
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>性别： <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span>  <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span> <span class="hljs-attr">required</span>&gt;</span> 男
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span>&gt;</span> 女
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span>&gt;</span> 其他
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-select-1"</span>&gt;</span>下拉单选框<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-select-1"</span> <span class="hljs-attr">required</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-=请选择一项=-<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option1"</span>&gt;</span>选项一...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option2"</span>&gt;</span>选项二.....<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option3"</span>&gt;</span>选项三........<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-select-2"</span>&gt;</span>多选框<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-select-2"</span> <span class="hljs-attr">minchecked</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">maxchecked</span>=<span class="hljs-string">"4"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-ta-2"</span>&gt;</span>评论：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-ta-2"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"100"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><h3 id="xian-shi-ti-shi-xin-xi">显示提示信息 <a href="#xian-shi-ti-shi-xin-xi" title="Heading anchor" class="doc-anchor"></a></h3><p>通过插件的 <code>.onValid</code> 和 <code>onInValid</code> 回调接口，可以根据需要定提示信息显示。</p><p>使用时可以自行定义提示信息，也可以使用插件的内置的提示信息，详见后面的示例代码。</p><p><strong>注意：</strong> <code>.getValidationMessage(validity)</code> 是 <code>v2.3</code> 中新增的方法，以前的版本只能使用自定义信息。</p><h4 id="di-bu-xian-shi-ti-shi-xin-xi">底部显示提示信息 <a href="#di-bu-xian-shi-ti-shi-xin-xi" title="Heading anchor" class="doc-anchor"></a></h4><div class="doc-example"><form action="" class="am-form" id="doc-vld-msg"><fieldset><legend>JS 表单验证</legend><div class="am-form-group"><label for="doc-vld-name-2-1">用户名：</label><input type="text" id="doc-vld-name-2-1" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/></div><div class="am-form-group"><label for="doc-vld-email-2-1">邮箱：</label><input type="email" id="doc-vld-email-2-1" data-validation-message="自定义提示信息：输入地球上的电子邮箱撒" placeholder="输入邮箱" required/></div><div class="am-form-group"><label for="doc-vld-url-2-1">网址：</label><input type="url" id="doc-vld-url-2-1" placeholder="输入网址" required/></div><div class="am-form-group"><label for="doc-vld-age-2-1">年龄：</label><input type="number" class="" id="doc-vld-age-2-1" placeholder="输入年龄  18-120" min="18" max="120" required/></div><div class="am-form-group"><label class="am-form-label">爱好：</label><label class="am-checkbox-inline"><input type="checkbox" value="橘子" name="docVlCb" minchecked="2" maxchecked="4" required> 橘子</label><label class="am-checkbox-inline"><input type="checkbox" value="苹果" name="docVlCb"> 苹果</label><label class="am-checkbox-inline"><input type="checkbox" value="菠萝" name="docVlCb"> 菠萝</label><label class="am-checkbox-inline"><input type="checkbox" value="芒果" name="docVlCb"> 芒果</label><label class="am-checkbox-inline"><input type="checkbox" value="香蕉" name="docVlCb"> 香蕉</label></div><div class="am-form-group"><label>性别：</label><label class="am-radio-inline"><input type="radio" value="" name="docVlGender" required> 男</label><label class="am-radio-inline"><input type="radio" name="docVlGender"> 女</label><label class="am-radio-inline"><input type="radio" name="docVlGender"> 其他</label></div><div class="am-form-group"><label for="doc-select-1-1">下拉单选框</label><select id="doc-select-1-1" required><option value="">-=请选择一项=-</option><option value="option1">选项一...</option><option value="option2">选项二.....</option><option value="option3">选项三........</option></select><span class="am-form-caret"></span></div><div class="am-form-group"><label for="doc-select-2-1">多选框</label><select multiple="multiple" class="" id="doc-select-2-1" minchecked="2" maxchecked="4"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div class="am-form-group"><label for="doc-vld-ta-2-1">评论：</label><textarea id="doc-vld-ta-2-1" minlength="10" maxlength="100"></textarea></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form><script>$(function(){$("#doc-vld-msg").validator({onValid:function(a){$(a.field).closest(".am-form-group").find(".am-alert").hide()},onInValid:function(a){var i=$(a.field),d=i.closest(".am-form-group"),e=d.find(".am-alert"),l=i.data("validationMessage")||this.getValidationMessage(a);e.length||(e=$('<div class="am-alert am-alert-danger"></div>').hide().appendTo(d)),e.html(l).show()}})})</script></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-msg"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>显示验证提示信息<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name-2-1"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name-2-1"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名（至少 3 个字符）"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-email-2-1"</span>&gt;</span>邮箱：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-email-2-1"</span> <span class="hljs-attr">data-validation-message</span>=<span class="hljs-string">"自定义提示信息：输入地球上的电子邮箱撒"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入邮箱"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-url-2-1"</span>&gt;</span>网址：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-url-2-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入网址"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-age-2-1"</span>&gt;</span>年龄：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>  <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-age-2-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入年龄  18-120"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"18"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"120"</span> <span class="hljs-attr">required</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-label"</span>&gt;</span>爱好：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"橘子"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span> <span class="hljs-attr">minchecked</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">maxchecked</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">required</span>&gt;</span> 橘子
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"苹果"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 苹果
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"菠萝"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 菠萝
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"芒果"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 芒果
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-checkbox-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"香蕉"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlCb"</span>&gt;</span> 香蕉
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>性别： <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span>  <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span> <span class="hljs-attr">required</span>&gt;</span> 男
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span>&gt;</span> 女
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-radio-inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"docVlGender"</span>&gt;</span> 其他
+      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-select-1-1"</span>&gt;</span>下拉单选框<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-select-1-1"</span> <span class="hljs-attr">required</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-=请选择一项=-<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option1"</span>&gt;</span>选项一...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option2"</span>&gt;</span>选项二.....<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option3"</span>&gt;</span>选项三........<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-select-2-1"</span>&gt;</span>多选框<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-select-2-1"</span> <span class="hljs-attr">minchecked</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">maxchecked</span>=<span class="hljs-string">"4"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-ta-2-1"</span>&gt;</span>评论：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-ta-2-1"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"100"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  $(<span class="hljs-string">'#doc-vld-msg'</span>).validator({
+    onValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+      $(validity.field).closest(<span class="hljs-string">'.am-form-group'</span>).find(<span class="hljs-string">'.am-alert'</span>).hide();
+    },
+
+    onInValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+      <span class="hljs-keyword">var</span> $field = $(validity.field);
+      <span class="hljs-keyword">var</span> $group = $field.closest(<span class="hljs-string">'.am-form-group'</span>);
+      <span class="hljs-keyword">var</span> $alert = $group.find(<span class="hljs-string">'.am-alert'</span>);
+      <span class="hljs-comment">// 使用自定义的提示信息 或 插件内置的提示信息</span>
+      <span class="hljs-keyword">var</span> msg = $field.data(<span class="hljs-string">'validationMessage'</span>) || <span class="hljs-keyword">this</span>.getValidationMessage(validity);
+
+      <span class="hljs-keyword">if</span> (!$alert.length) {
+        $alert = $(<span class="hljs-string">'&lt;div class="am-alert am-alert-danger"&gt;&lt;/div&gt;'</span>).hide().
+          appendTo($group);
+      }
+
+      $alert.html(msg).show();
+    }
+  });
+});</code></pre></div><h4 id="tooltip">Tooltip <a href="#tooltip" title="Heading anchor" class="doc-anchor"></a></h4><div class="doc-example"><form action="" class="am-form" id="form-with-tooltip"><fieldset><legend>定义 Tooltip</legend><div class="am-form-group"><label for="doc-vld-name-2-0">用户名：</label><input type="text" id="doc-vld-name-2-0" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/></div><div class="am-form-group"><label for="doc-vld-pwd-1-0">密码：</label><input type="password" id="doc-vld-pwd-1-0" placeholder="6 位数字的银行卡密码" pattern="^\d{6}$" required data-foolish-msg="把 IQ 卡密码交出来！"/></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form><style>#vld-tooltip{position:absolute;z-index:1000;padding:5px 10px;background:#F37B1D;min-width:150px;color:#fff;transition:all .15s;box-shadow:0 0 5px rgba(0,0,0,.15);display:none}#vld-tooltip:before{position:absolute;top:-8px;left:50%;width:0;height:0;margin-left:-8px;content:"";border-width:0 8px 8px;border-color:transparent transparent #F37B1D;border-style:none inset solid}</style><script>$(function(){var t=$("#form-with-tooltip"),o=$('<div id="vld-tooltip">提示信息！</div>');o.appendTo(document.body),t.validator({onValid:function(){o.hide()}}),t.on("focusin focusout",".am-form-error input",function(i){if("focusin"===i.type){var a=$(this),e=a.offset(),d=a.data("foolishMsg")||t.validator("getValidationMessage",a.data("validity"));o.text(d).show().css({left:e.left+10,top:e.top+$(this).outerHeight()+10})}else o.hide()})})</script></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form-with-tooltip"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>定义 Tooltip<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name-2-0"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name-2-0"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span>
+             <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名（至少 3 个字符）"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-pwd-1-0"</span>&gt;</span>密码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-pwd-1-0"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"6 位数字的银行卡密码"</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"^\d{6}$"</span> <span class="hljs-attr">required</span> <span class="hljs-attr">data-foolish-msg</span>=<span class="hljs-string">"把 IQ 卡密码交出来！"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-id">#vld-tooltip</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1000</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span>;
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#F37B1D</span>;
+    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">150px</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.15s</span>;
+    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0,0,0,.15);
+    <span class="hljs-attribute">display</span>: none;
+  }
+
+  <span class="hljs-selector-id">#vld-tooltip</span><span class="hljs-selector-pseudo">:before</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: -<span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
+    <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span> <span class="hljs-number">8px</span> <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">border-color</span>: transparent transparent <span class="hljs-number">#F37B1D</span>;
+    <span class="hljs-attribute">border-style</span>: none inset solid;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> $form = $(<span class="hljs-string">'#form-with-tooltip'</span>);
+  <span class="hljs-keyword">var</span> $tooltip = $(<span class="hljs-string">'&lt;div id="vld-tooltip"&gt;提示信息！&lt;/div&gt;'</span>);
+  $tooltip.appendTo(<span class="hljs-built_in">document</span>.body);
+
+  $form.validator();
+
+  <span class="hljs-keyword">var</span> validator = $form.data(<span class="hljs-string">'amui.validator'</span>);
+
+  $form.on(<span class="hljs-string">'focusin focusout'</span>, <span class="hljs-string">'.am-form-error input'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.type === <span class="hljs-string">'focusin'</span>) {
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>);
+      <span class="hljs-keyword">var</span> offset = $<span class="hljs-keyword">this</span>.offset();
+      <span class="hljs-keyword">var</span> msg = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'foolishMsg'</span>) || validator.getValidationMessage($<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'validity'</span>));
+
+      $tooltip.text(msg).show().css({
+        left: offset.left + <span class="hljs-number">10</span>,
+        top: offset.top + $(<span class="hljs-keyword">this</span>).outerHeight() + <span class="hljs-number">10</span>
+      });
+    } <span class="hljs-keyword">else</span> {
+      $tooltip.hide();
+    }
+  });
+});</code></pre></div><h3 id="deng-zhi-yan-zheng">等值验证 <a href="#deng-zhi-yan-zheng" title="Heading anchor" class="doc-anchor"></a></h3><p>通过 <code>data-equal-to</code> 指定要比较的域。</p><div class="doc-example"><form action="" class="am-form" data-am-validator><fieldset><legend>密码验证</legend><div class="am-form-group"><label for="doc-vld-name-2">用户名：</label><input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/></div><div class="am-form-group"><label for="doc-vld-pwd-1">密码：</label><input type="password" id="doc-vld-pwd-1" placeholder="6 位数字的银行卡密码" pattern="^\d{6}$" required/></div><div class="am-form-group"><label for="doc-vld-pwd-2">确认密码：</label><input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">data-am-validator</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>密码验证<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name-2"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name-2"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span>
+             <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名（至少 3 个字符）"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-pwd-1"</span>&gt;</span>密码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-pwd-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"6 位数字的银行卡密码"</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"^\d{6}$"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-pwd-2"</span>&gt;</span>确认密码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-pwd-2"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"请与上面输入的值一致"</span> <span class="hljs-attr">data-equal-to</span>=<span class="hljs-string">"#doc-vld-pwd-1"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><h3 id="zi-ding-yi-yan-zheng">自定义验证 <a href="#zi-ding-yi-yan-zheng" title="Heading anchor" class="doc-anchor"></a></h3><p>插件预置的功能不可能满足各异的需求，通过 <code>validate</code> 选项，可以自定义验证规则，如远程验证等。</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-string">'#your-form'</span>).validator({
+  validate: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+    <span class="hljs-comment">// 在这里编写你的验证逻辑</span>
+  }</code></pre></div><p>参数 <code>validity</code> 是一个类似 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">H5 ValidityState</a> 属性的对象。只要中主要用到的包括：</p><ul><li><code>validity.field</code> - DOM 对象，当前验证的域，通过 <code>$(validity.field)</code> 可转换为 jQuery 对象，一般用于获取值和判断是否为特定域，以编写验证逻辑；</li><li><code>validity.valid</code> - 布尔值，验证是否通过，通过赋值 <code>true</code>，否则赋值 <code>false</code>。</li></ul><p>其它属性用来描述验证出错的细节，包括：</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">{
+  customError: <span class="hljs-literal">false</span>,
+  patternMismatch: <span class="hljs-literal">false</span>,
+  rangeOverflow: <span class="hljs-literal">false</span>, <span class="hljs-comment">// higher than maximum</span>
+  rangeUnderflow: <span class="hljs-literal">false</span>, <span class="hljs-comment">// lower than  minimum</span>
+  stepMismatch: <span class="hljs-literal">false</span>,
+  tooLong: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// value is not in the correct syntax</span>
+  typeMismatch: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// Returns true if the element has no value but is a required field</span>
+  valueMissing: <span class="hljs-literal">false</span>
+}</code></pre></div><p>插件扩展的三种验证属性，对应的自定义错误名称为：</p><ul><li><code>minlength</code> -&gt; <code>tooShort</code></li><li><code>minchecked</code> -&gt; <code>checkedUnderflow</code></li><li><code>maxchecked</code> -&gt; <code>checkedOverflow</code></li></ul><p>H5 浏览器原生验证通过错误细节来显示提示信息，<del>插件中暂未使用到这些属性，如果实在不想写，可以略过，</del> <code>v2.3</code> 开始这些信息用于生成错误提示信息。</p><p><strong>需要注意的注意细节：</strong></p><ul><li>通过 <code>validity.valid</code> 标记验证是否通过；</li><li>如果是远程异步验证，<strong>必须</strong>返回 <a href="http://api.jquery.com/category/deferred-object/">Deferred 对象</a>，且回调函数中要返回 <code>validity</code>。</li></ul><div class="doc-code demo-highlight"><pre class=""><code class="javascript"><span class="hljs-keyword">return</span> $.ajax({
+    url: <span class="hljs-string">'...'</span>,
+    <span class="hljs-comment">// cache: false, 实际使用中请禁用缓存</span>
+    dataType: <span class="hljs-string">'json'</span>
+  }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-comment">// Ajax 请求成功，根据服务器返回的信息，设置 validity.valid = true or flase</span>
+
+    <span class="hljs-comment">// 返回 validity</span>
+    <span class="hljs-keyword">return</span> validity;
+  }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// Ajax 请求失败，根据需要决定验证是否通过，然后返回 validity</span>
+    <span class="hljs-keyword">return</span> validity;
+  });</code></pre></div><div class="doc-example"><form action="" class="am-form" id="doc-vld-ajax"><fieldset><legend>自定义验证</legend><div class="am-form-group"><label for="doc-vld-ajax-count">Ajax 服务器端验证：</label><input type="text" class="js-ajax-validate" id="doc-vld-ajax-count" placeholder="只能填写数字 10" data-validate-async/></div><div class="am-form-group"><label for="doc-vld-sync">客户端验证：</label><input type="text" class="js-sync-validate" id="doc-vld-sync" placeholder="只能填写数字 10"/></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-ajax"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>自定义验证<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-ajax-count"</span>&gt;</span>Ajax 服务器端验证：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-ajax-validate"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-ajax-count"</span>
+             <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"只能填写数字 10"</span> <span class="hljs-attr">data-validate-async</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-sync"</span>&gt;</span>客户端验证：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-sync-validate"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-sync"</span>
+             <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"只能填写数字 10"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><script>$(function(){$("#doc-vld-ajax").validator({validate:function(a){var n=$(a.field).val(),i=function(n,i){n!=i&&(a.valid=!1),10>i?a.rangeUnderflow=!0:i>10&&(a.rangeOverflow=!0)};return $(a.field).is(".js-ajax-validate")?$.ajax({url:"http://s.amazeui.org/media/i/demos/validate.json",dataType:"json"}).then(function(e){return i(e.count,n),a},function(){return a}):void($(a.field).is(".js-sync-validate")&&i(10,n))}})})</script><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  $(<span class="hljs-string">'#doc-vld-ajax'</span>).validator({
+    validate: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+      <span class="hljs-keyword">var</span> v = $(validity.field).val();
+
+      <span class="hljs-keyword">var</span> comparer = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">v1, v2</span>) </span>{
+        <span class="hljs-keyword">if</span> (v1 != v2) {
+          validity.valid = <span class="hljs-literal">false</span>;
+        }
+
+        <span class="hljs-comment">// 这些属性目前 v2.3 以前没什么用，如果不想写可以忽略</span>
+        <span class="hljs-comment">// 从 v2.3 开始，这些属性被 getValidationMessage() 用于生成错误提示信息</span>
+        <span class="hljs-keyword">if</span> (v2 &lt; <span class="hljs-number">10</span>) {
+          validity.rangeUnderflow = <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(v2 &gt; <span class="hljs-number">10</span>) {
+          validity.rangeOverflow = <span class="hljs-literal">true</span>;
+        }
+      };
+
+      <span class="hljs-comment">// Ajax 验证</span>
+      <span class="hljs-keyword">if</span> ($(validity.field).is(<span class="hljs-string">'.js-ajax-validate'</span>)) {
+        <span class="hljs-comment">// 异步操作必须返回 Deferred 对象</span>
+        <span class="hljs-keyword">return</span> $.ajax({
+          url: <span class="hljs-string">'http://s.amazeui.org/media/i/demos/validate.json'</span>,
+          <span class="hljs-comment">// cache: false, 实际使用中请禁用缓存</span>
+          dataType: <span class="hljs-string">'json'</span>
+        }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+          comparer(data.count, v);
+          <span class="hljs-keyword">return</span> validity;
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          <span class="hljs-keyword">return</span> validity;
+        });
+      }
+
+      <span class="hljs-comment">// 本地验证，同步操作，无需返回值</span>
+      <span class="hljs-keyword">if</span> ($(validity.field).is(<span class="hljs-string">'.js-sync-validate'</span>)) {
+        comparer(<span class="hljs-number">10</span>, v);
+        <span class="hljs-comment">// return validity;</span>
+      }
+    }
+  });
+});</code></pre></div><h3 id="yan-zheng-ueditor">验证 UEditor <a href="#yan-zheng-ueditor" title="Heading anchor" class="doc-anchor"></a></h3><p>Validator 可以和 <a href="http://ueditor.baidu.com/">UEditor</a> 富文本编辑器结合使用。</p><div class="doc-example"><form action="" class="am-form" id="ue-form"><fieldset><legend>JS 表单验证</legend><div class="am-form-group"><label for="doc-vld-name-2">用户名：</label><input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/></div><div class="am-form-group"><label for="doc-vld-ta-2">评论：</label><textarea class="am-validate" name="myue" id="myue" minlength="10" maxlength="100" required></textarea></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form><script src="http://ueditor.baidu.com/ueditor/ueditor.config.js"></script><script src="http://ueditor.baidu.com/ueditor/ueditor.all.js"></script><script>$(function(){var n=$("[name=myue"),i=UE.getEditor("myue"),e=$("#ue-form");e.validator({submit:function(){i.sync();var t=this.isFormValid();return!t&&e.find("."+this.options.inValidClass).eq(0).is(n)&&i.focus(),console.warn("验证状态：",t?"通过":"未通过"),!1}}),i.addListener("contentChange",function(){i.sync(),$("[name=myue]").trigger("change")})})</script></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ue-form"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>JS 表单验证<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-name-2"</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-name-2"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入用户名（至少 3 个字符）"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-ta-2"</span>&gt;</span>评论：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-validate"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myue"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myue"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ueditor.baidu.com/ueditor/ueditor.config.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ueditor.baidu.com/ueditor/ueditor.all.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> $textArea = $(<span class="hljs-string">'[name=myue'</span>);
+  <span class="hljs-keyword">var</span> editor = UE.getEditor(<span class="hljs-string">'myue'</span>);
+  <span class="hljs-keyword">var</span> $form = $(<span class="hljs-string">'#ue-form'</span>);
+
+  $form.validator({
+    submit: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-comment">// 同步编辑器数据</span>
+      editor.sync();
+
+      <span class="hljs-keyword">var</span> formValidity = <span class="hljs-keyword">this</span>.isFormValid();
+
+      <span class="hljs-comment">// 表单验证未成功，而且未成功的第一个元素为 UEEditor 时，focus 编辑器</span>
+      <span class="hljs-keyword">if</span> (!formValidity &amp;&amp; $form.find(<span class="hljs-string">'.'</span> + <span class="hljs-keyword">this</span>.options.inValidClass).eq(<span class="hljs-number">0</span>).is($textArea)) {
+        editor.focus();
+      }
+
+      <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'验证状态：'</span>, formValidity ? <span class="hljs-string">'通过'</span> : <span class="hljs-string">'未通过'</span>);
+
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  });
+
+  <span class="hljs-comment">// 编辑器内容变化时同步到 textarea</span>
+  editor.addListener(<span class="hljs-string">'contentChange'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    editor.sync();
+
+    <span class="hljs-comment">// 触发验证</span>
+    $(<span class="hljs-string">'[name=myue]'</span>).trigger(<span class="hljs-string">'change'</span>);
+  });
+});</code></pre></div><h2 id="shi-yong-fang-shi">使用方式 <a href="#shi-yong-fang-shi" title="Heading anchor" class="doc-anchor"></a></h2><h3 id="tong-guo-data-api">通过 Data API <a href="#tong-guo-data-api" title="Heading anchor" class="doc-anchor"></a></h3><p>在 <code>form</code> 上添加 <code>data-am-validator</code> 属性（同时可以设置相关选项）。</p><h3 id="tong-guo-js">通过 JS <a href="#tong-guo-js" title="Heading anchor" class="doc-anchor"></a></h3><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  $(<span class="hljs-string">'#your-form'</span>).validator(options);
+});</code></pre></div><h4 id="can-shu-shuo-ming">参数说明 <a href="#can-shu-shuo-ming" title="Heading anchor" class="doc-anchor"></a></h4><div class="doc-code demo-highlight"><pre class=""><code class="javascript">{
+  <span class="hljs-comment">// 是否使用 H5 原生表单验证，不支持浏览器会自动退化到 JS 验证</span>
+  H5validation: <span class="hljs-literal">false</span>,
+
+  <span class="hljs-comment">// 内置规则的 H5 input type，这些 type 无需添加 pattern</span>
+  H5inputType: [<span class="hljs-string">'email'</span>, <span class="hljs-string">'url'</span>, <span class="hljs-string">'number'</span>],
+
+  <span class="hljs-comment">// 验证正则</span>
+  <span class="hljs-comment">// key1: /^...$/，包含 `js-pattern-key1` 的域会自动应用改正则</span>
+  patterns: {},
+
+  <span class="hljs-comment">// 规则 class 钩子前缀</span>
+  patternClassPrefix: <span class="hljs-string">'js-pattern-'</span>,
+
+  activeClass: <span class="hljs-string">'am-active'</span>,
+
+  <span class="hljs-comment">// 验证不通过时添加到域上的 class</span>
+  inValidClass: <span class="hljs-string">'am-field-error'</span>,
+
+  <span class="hljs-comment">// 验证通过时添加到域上的 class</span>
+  validClass: <span class="hljs-string">'am-field-valid'</span>,
+
+  <span class="hljs-comment">// 表单提交的时候验证</span>
+  validateOnSubmit: <span class="hljs-literal">true</span>,
+
+  <span class="hljs-comment">// 表单提交时验证的域</span>
+  <span class="hljs-comment">// Elements to validate with allValid (only validating visible elements)</span>
+  <span class="hljs-comment">// :input: selects all input, textarea, select and button elements.</span>
+  <span class="hljs-comment">// @since 2.5: move `:visible` to `ignore` option, became to `:hidden`</span>
+  allFields: <span class="hljs-string">':input:not(:button, :disabled, .am-novalidate)'</span>,
+
+  <span class="hljs-comment">// 表单提交时验证的忽略的域</span>
+  <span class="hljs-comment">// ignored elements</span>
+  <span class="hljs-comment">// @since 2.5</span>
+  ignore: <span class="hljs-string">':hidden:not([data-am-selected], .am-validate)'</span>,
+
+  <span class="hljs-comment">// 调用 validate() 方法的自定义事件</span>
+  customEvents: <span class="hljs-string">'validate'</span>,
+
+  <span class="hljs-comment">// 下列元素触发以下事件时会调用验证程序</span>
+  keyboardFields: <span class="hljs-string">':input:not(:button, :disabled,.am-novalidate)'</span>,
+  keyboardEvents: <span class="hljs-string">'focusout, change'</span>, <span class="hljs-comment">// keyup, focusin</span>
+
+  <span class="hljs-comment">// 标记为 `.am-active` (发生错误以后添加此 class)的元素 keyup 时验证</span>
+  activeKeyup: <span class="hljs-literal">false</span>,
+
+  <span class="hljs-comment">// textarea[maxlength] 的元素 keyup 时验证</span>
+  textareaMaxlenthKeyup: <span class="hljs-literal">true</span>,
+
+  <span class="hljs-comment">// 鼠标点击下列元素时会调用验证程序</span>
+  pointerFields: <span class="hljs-string">'input[type="range"]:not(:disabled, .am-novalidate), '</span> +
+  <span class="hljs-string">'input[type="radio"]:not(:disabled, .am-novalidate), '</span> +
+  <span class="hljs-string">'input[type="checkbox"]:not(:disabled, .am-novalidate), '</span> +
+  <span class="hljs-string">'select:not(:disabled, .am-novalidate), '</span> +
+  <span class="hljs-string">'option:not(:disabled, .am-novalidate)'</span>,
+  pointerEvents: <span class="hljs-string">'click'</span>,
+
+  <span class="hljs-comment">// 域通过验证时回调</span>
+  onValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+  },
+
+  <span class="hljs-comment">// 验证出错时的回调， validity 对象包含相关信息，格式通 H5 表单元素的 validity 属性</span>
+  onInValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+  },
+
+  <span class="hljs-comment">// 域验证通过时添加的操作，通过该接口可定义各种验证提示</span>
+  markValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+    <span class="hljs-comment">// this is Validator instance</span>
+    <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">this</span>.options;
+    <span class="hljs-keyword">var</span> $field  = $(validity.field);
+    <span class="hljs-keyword">var</span> $parent = $field.closest(<span class="hljs-string">'.am-form-group'</span>);
+    $field.addClass(options.validClass).
+      removeClass(options.inValidClass);
+
+    $parent.addClass(<span class="hljs-string">'am-form-success'</span>).removeClass(<span class="hljs-string">'am-form-error'</span>);
+
+    options.onValid.call(<span class="hljs-keyword">this</span>, validity);
+  },
+
+  <span class="hljs-comment">// 域验证失败时添加的操作，通过该接口可定义各种验证提示</span>
+  markInValid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+    <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">this</span>.options;
+    <span class="hljs-keyword">var</span> $field  = $(validity.field);
+    <span class="hljs-keyword">var</span> $parent = $field.closest(<span class="hljs-string">'.am-form-group'</span>);
+    $field.addClass(options.inValidClass + <span class="hljs-string">' '</span> + options.activeClass).
+      removeClass(options.validClass);
+
+    $parent.addClass(<span class="hljs-string">'am-form-error'</span>).removeClass(<span class="hljs-string">'am-form-success'</span>);
+
+    options.onInValid.call(<span class="hljs-keyword">this</span>, validity);
+  },
+
+  <span class="hljs-comment">// 自定义验证程序接口，详见示例</span>
+  validate: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">validity</span>) </span>{
+    <span class="hljs-comment">// return validity;</span>
+  },
+
+  <span class="hljs-comment">// 定义表单提交处理程序</span>
+  <span class="hljs-comment">//   - 如果没有定义且 `validateOnSubmit` 为 `true` 时，提交时会验证整个表单</span>
+  <span class="hljs-comment">//   - 如果定义了表单提交处理程序，`validateOnSubmit` 将会失效</span>
+  <span class="hljs-comment">//        function(e) {</span>
+  <span class="hljs-comment">//          // 通过 this.isFormValid() 获取表单验证状态</span>
+  <span class="hljs-comment">//          // 注意： 如果自定义验证程序而且自定义验证程序中包含异步验证的话 this.isFormValid() 返回的是 Promise，不是布尔值</span>
+  <span class="hljs-comment">//          // Do something...</span>
+  <span class="hljs-comment">//        }</span>
+  submit: <span class="hljs-literal">null</span>
+}</code></pre></div><p><strong>包含异步验证的表单提交处理</strong></p><p>包含异步验证时，<code>isFormValid()</code> 返回 Promise，可以使用 <a href="http://api.jquery.com/jQuery.when/"><code>jQuery.when()</code></a> 来处理结果。</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">$(<span class="hljs-string">'#xx'</span>).validator({
+  submit: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> formValidity = <span class="hljs-keyword">this</span>.isFormValid();
+
+    $.when(formValidity).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-comment">// 验证成功的逻辑</span>
+    }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-comment">// 验证失败的逻辑</span>
+    });
+  }
+});</code></pre></div><h4 id="kuo-zhan-zheng-ze-ku">扩展正则库 <a href="#kuo-zhan-zheng-ze-ku" title="Heading anchor" class="doc-anchor"></a></h4><p>在 DOM Ready 之前执行以下操作：</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$</span>) </span>{
+  <span class="hljs-keyword">if</span> ($.AMUI &amp;&amp; $.AMUI.validator) {
+    <span class="hljs-comment">// 增加多个正则</span>
+    $.AMUI.validator.patterns = $.extend($.AMUI.validator.patterns, {
+      colorHex: <span class="hljs-regexp">/^(#([a-fA-F0-9]{6}|[a-fA-F0-9]{3}))?$/</span>
+    });
+    <span class="hljs-comment">// 增加单个正则</span>
+    $.AMUI.validator.patterns.yourpattern = <span class="hljs-regexp">/^your$/</span>;
+  }
+})(<span class="hljs-built_in">window</span>.jQuery);</code></pre></div><div class="doc-example"><form action="" class="am-form" data-am-validator><div class="am-form-group"><label for="">输入一个颜色值</label><input type="text" class="js-pattern-colorHex" placeholder="如果填写，必须是 #xxx 或 #xxxxxx"/></div><div class="am-form-group"><label for="">your pattern</label><input type="text" class="js-pattern-yourpattern" placeholder="必填，且只能填 your" required/></div><div><button class="am-btn am-btn-secondary">提交</button></div></form><script>!function(a){a.AMUI&&a.AMUI.validator&&(a.AMUI.validator.patterns=a.extend(a.AMUI.validator.patterns,{colorHex:/^(#([a-fA-F0-9]{6}|[a-fA-F0-9]{3}))?$/}),a.AMUI.validator.patterns.yourpattern=/^your$/)}(window.jQuery)</script></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">data-am-validator</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">""</span>&gt;</span>输入一个颜色值<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-pattern-colorHex"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"如果填写，必须是 #xxx 或 #xxxxxx"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">""</span>&gt;</span>your pattern<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-pattern-yourpattern"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"必填，且只能填 your"</span> <span class="hljs-attr">required</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre></div><h3 id="fang-fa">方法 <a href="#fang-fa" title="Heading anchor" class="doc-anchor"></a></h3><ul><li><code>.validator(options)</code> - 初始化表单验证</li><li><p><code>.validator(&#39;isFormValid&#39;)</code> - 返回表单验证状态，如果包含异步验证则返回 Promise（使用 <code>jQuery.when</code> 处理），否则返回布尔值</p><div class="doc-code demo-highlight"><pre class=""><code class="javascript"><span class="hljs-comment">// 处理异步验证结果</span>
+$.when($(<span class="hljs-string">'myForm'</span>).validator(<span class="hljs-string">'isFormValid'</span>)).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-comment">// 验证成功的逻辑</span>
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-comment">// 验证失败的逻辑</span>
+});</code></pre></div></li><li><code>.validator(&#39;destroy&#39;)</code> - 销毁表单验证</li></ul><h2 id="issue-ce-shi">Issue 测试 <a href="#issue-ce-shi" title="Heading anchor" class="doc-anchor"></a></h2><h3 id="a-hrefhttpsgithub-comallmobilizeamazeuiissues528528a"><a href="https://github.com/allmobilize/amazeui/issues/528">#528</a> <a href="#a-hrefhttpsgithub-comallmobilizeamazeuiissues528528a" title="Heading anchor" class="doc-anchor"></a></h3><div class="doc-example"><form action="" class="am-form" data-am-validator><fieldset><legend>Issue 528</legend><div class="am-form-group"><label for="doc-vld-528">手机号：</label><input type="text" id="doc-vld-528" class="js-pattern-mobile" placeholder="输入手机号" required/></div><button class="am-btn am-btn-secondary" type="submit">提交</button></fieldset></form><script>$.AMUI&&$.AMUI.validator&&($.AMUI.validator.patterns.mobile=/^\s*1\d{10}\s*$/)</script></div><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form"</span> <span class="hljs-attr">data-am-validator</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Issue 528<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-vld-528"</span>&gt;</span>手机号：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-vld-528"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-pattern-mobile"</span>
+             <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"输入手机号"</span> <span class="hljs-attr">required</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-btn am-btn-secondary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">if</span> ($.AMUI &amp;&amp; $.AMUI.validator) {
+    $.AMUI.validator.patterns.mobile = <span class="hljs-regexp">/^\s*1\d{10}\s*$/</span>;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div><h2 id="can-kao-zi-yuan">参考资源 <a href="#can-kao-zi-yuan" title="Heading anchor" class="doc-anchor"></a></h2><h3 id="chang-yong-zheng-ze-biao-da-shi">常用正则表达式 <a href="#chang-yong-zheng-ze-biao-da-shi" title="Heading anchor" class="doc-anchor"></a></h3><ul><li>带区号的电话号码：<code>/^(\d{3}-|\d{4}-)(\d{8}|\d{7})$/</code></li><li>匹配中文字符： <code>/[\u4e00-\u9fa5]/</code></li><li>国内邮政编码： <code>/^\d{6}$/</code></li><li>国内手机号码： <code>/^1((3|5|8){1}\d{1}|70)\d{8}$/</code> （匹配 13x/15x/18x/170 号段，如有遗漏请自行添加）</li></ul><h3 id="zhu-yi-shi-xiang">注意事项 <a href="#zhu-yi-shi-xiang" title="Heading anchor" class="doc-anchor"></a></h3><ul><li><code>checkbox</code>/<code>radio</code> <strong>务必添加 <code>name</code> 属性，否则无法正常工作</strong>；</li><li><code>&lt;input type=&quot;number&quot;&gt;</code> 输入非数字字符时返回值为空字符串 <code>&quot;&quot;</code>；</li><li>浏览器默认选中下拉单选框的第一项，使用时需将第一项的值设置为空 <code>value=&quot;&quot;</code>。</li></ul><div class="doc-code demo-highlight"><pre class=""><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"doc-select-1"</span>&gt;</span>下拉单选框<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc-select-1"</span> <span class="hljs-attr">required</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-=请选择一项=-<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option1"</span>&gt;</span>选项一...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option2"</span>&gt;</span>选项二.....<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"option3"</span>&gt;</span>选项三........<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"am-form-caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><h3 id="can-kao-lian-jie">参考链接 <a href="#can-kao-lian-jie" title="Heading anchor" class="doc-anchor"></a></h3><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">Validity State</a></li><li><a href="http://dev.w3.org/html5/spec-preview/constraints.html#the-constraint-validation-api">HTML5 Constraint Validation API</a></li><li><a href="http://www.html5rocks.com/en/tutorials/forms/constraintvalidation/">Constraint Validation: Native Client Side Validation for Web Forms</a></li><li><a href="https://github.com/wenzhixin/multiple-select/">https://github.com/wenzhixin/multiple-select/</a></li><li><a href="https://github.com/mathiasbynens/jquery-placeholder">HTML5 Placeholder jQuery Plugin</a></li></ul><div id="issue-list"></div><script type="text/x-handlebars-template" id="issue-list-tpl"><h2>Issue 列表</h2>
+          <ul class="am-list issue-list">
+            {{#each this}}
+              <li><a href="{{html_url}}" target="_blank" class="am-text-truncate am-icon-bug">{{title}}
+                <span
+                  class="am-badge {{#ifCond state '=='
+                  'open'}}am-badge-danger{{else}}am-badge-success{{/ifCond}}">{{state}}</span></a></li>
+            {{/each}}
+          </ul></script></div></div></section><a href="#amz-offcanvas" class="am-icon-btn am-icon-bars am-show-sm-only amz-sidebar-toggle" data-am-offcanvas><span class="am-sr-only">侧栏导航</span></a><footer class="amz-footer"><div class="am-g am-g-fixed"><div class="col-md-4 col-md-push-8 am-u-md-4 am-u-md-push-8"><ul class="amz-social"><li><a href="../../about/contact"><span class="am-icon-qq"></span></a></li><li><a href="http://weibo.com/amazeui" title="Amaze UI 微博" target="_blank"><span class="am-icon-weibo"></span></a></li><li><a href="#am-wechat" title="云适配微信" data-am-modal><span class="am-icon-wechat"></span></a></li><li><a class="new-issue" href="https://github.com/allmobilize/amazeui/issues/new?title=Bug%3A%20&body=**%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0**%0A%0A%EF%BC%88%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E9%97%AE%E9%A2%98%EF%BC%89%0A%0A**%E4%BA%A7%E7%94%9F%E7%8E%AF%E5%A2%83**%0A%0A-%20%E8%AE%BE%E5%A4%87%EF%BC%9A%EF%BC%88%E6%89%8B%E6%9C%BA%E3%80%81%E5%B9%B3%E6%9D%BF%E7%AD%89%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%97%B6%E5%A1%AB%E5%86%99%E6%AD%A4%E9%A1%B9%EF%BC%89%0A-%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%8A%E7%89%88%E6%9C%AC%EF%BC%9A%0A-%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8A%E7%89%88%E6%9C%AC%EF%BC%9A%0A-%20%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80%EF%BC%9A%0A%0A**%E5%A4%8D%E7%8E%B0%E6%AD%A5%E5%A5%8F**%0A%0A1.%20%0A2.%20%0A...%20%0A%20%0A**UA:**%20%0A" target="_blank" title="Bug 反馈"><span class="am-icon-paper-plane"></span></a></li></ul></div><div class="col-md-8 col-md-pull-4 am-u-md-8 am-u-md-pull-4"><h2 class="amz-fd"><a href="http://www.yunshipei.com" target="_blank">云适配</a></h2><ul class="amz-links"><a href="../../about/wantu" class="am-icon-heart">&nbsp;妹子招亲</a> | <a href="../../about/resources">品牌相关</a></ul><p class="amz-cp">&copy; 2019 AllMobilize, Inc. Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. Developed with <a href="http://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>.</p></div></div></footer><div class="am-modal am-modal-no-btn" tabindex="-1" id="am-wechat"><div class="am-modal-dialog"><div class="am-modal-hd"><a href="" class="am-close am-close-spin" data-am-modal-close>&times;</a></div><div class="am-modal-bd"><img src="../../assets/i/am/qr-ui.jpg" alt="Amaze UI 微信"/><br/>在微信上关注我们</div></div></div><div class="amz-toolbar" id="amz-toolbar"><a href="#top" title="回到顶部" class="am-icon-btn am-icon-arrow-up" id="amz-go-top"></a> <a href="../../getting-started/faq" title="常见问题" class="am-icon-faq am-icon-btn am-icon-question-circle"></a></div><script src="../../assets/js/handlebars.min.js"></script><script src="../../assets/js/main.min.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?b424d39312c46404f15e22574a531fbb",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}(),function(e,t,a){function n(){!function(e,t,a,n,c,o,d){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),d=t.getElementsByTagName(a)[0],o.async=1,o.src=n,d.parentNode.insertBefore(o,d)}(e,t,a,"//www.google-analytics.com/analytics.js","ga"),ga("create","UA-34196034-8","amazeui.org"),ga("send","pageview")}e.addEventListener?e.addEventListener("load",n,!1):e.attachEvent&&e.attachEvent("onload",n)}(window,document,"script")</script><div style="display:none"><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?" https://":" http://";document.write(unescape("%3Cspan id='cnzz_stat_icon_1256061744'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s95.cnzz.com/z_stat.php%3Fid%3D1256061744%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"))</script><script type="text/javascript">var _vds=_vds||[];window._vds=_vds,function(){_vds.push(["setAccountId","9697e21287384bcaa5adf7edd07f1ee6"]),function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https://":"http://")+"dn-growing.qbox.me/vds.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}()</script></div></body></html><!-- Cached page generated on Tue Jul 02 2019 00:31:02 GMT+0800 (CST) -->
